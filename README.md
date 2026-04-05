@@ -217,6 +217,97 @@ python config_parser.py convert config.yaml -f json -o output.json
 
 ---
 
+### 9. 磁盘清理工具 (disk_cleaner.py)
+
+扫描和清理系统缓存、旧文件、大文件和空目录。
+
+```bash
+# 扫描缓存目录
+python disk_cleaner.py cache
+
+# 清理缓存（带确认）
+python disk_cleaner.py cache --clean
+
+# 清理缓存（跳过确认）
+python disk_cleaner.py cache --clean -y
+
+# 扫描30天前的旧文件
+python disk_cleaner.py old-files /var/log -d 30
+
+# 扫描大于100MB的文件
+python disk_cleaner.py large-files /home -s 100
+
+# 扫描空目录
+python disk_cleaner.py empty-dirs /home
+```
+
+**功能特性:**
+- 扫描常见缓存目录（pip/npm/gradle等）
+- 按时间扫描旧文件
+- 扫描大文件
+- 清理空目录
+
+---
+
+### 10. 网络诊断工具 (network_diag.py)
+
+网络连接诊断和测试。
+
+```bash
+# 检查网络连通性
+python network_diag.py check
+
+# Ping 主机
+python network_diag.py ping baidu.com
+
+# DNS 解析
+python network_diag.py dns google.com
+
+# HTTP 检查
+python network_diag.py http https://www.baidu.com
+
+# 路由追踪
+python network_diag.py trace google.com
+
+# 显示网络信息
+python network_diag.py info
+```
+
+**功能特性:**
+- 网络连通性测试
+- Ping 和 DNS 检查
+- HTTP/HTTPS 连接测试
+- 路由追踪
+- 网络接口信息
+
+---
+
+### 11. 定时任务管理工具 (cron_manager.py)
+
+管理 crontab 定时任务。
+
+```bash
+# 列出定时任务
+python cron_manager.py list
+
+# 添加定时任务
+python cron_manager.py add "0 6 * * *" "/backup/daily.sh" -c "每日备份"
+
+# 删除定时任务
+python cron_manager.py remove 1
+
+# 显示常用模板
+python cron_manager.py templates
+```
+
+**功能特性:**
+- 列出和管理定时任务
+- 添加和删除任务
+- 调度表达式解析
+- 常用模板参考
+
+---
+
 ## 安装依赖
 
 ```bash
