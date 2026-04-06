@@ -1,2 +1,5 @@
 psutil>=5.9.0
 PyYAML>=6.0
+
+# 测试依赖
+pytest>=7.0.0

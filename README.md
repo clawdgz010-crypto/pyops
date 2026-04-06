@@ -2,6 +2,63 @@
 
 Python 运维工具箱 - 系统监控、日志分析、进程管理、端口扫描等实用工具集
 
+## 快速开始
+
+### 统一命令行入口 (推荐)
+
+```bash
+# 查看帮助
+python pyops.py --help
+
+# 系统监控
+python pyops.py monitor
+
+# 持续监控
+python pyops.py monitor --loop
+
+# JSON 格式输出
+python pyops.py monitor --json
+
+# 日志分析
+python pyops.py log /var/log/syslog
+
+# 进程管理
+python pyops.py proc list
+python pyops.py proc find nginx
+
+# 端口扫描
+python pyops.py port listen
+python pyops.py port scan localhost -p 80,443,8080
+
+# 网络诊断
+python pyops.py net check
+python pyops.py net ping baidu.com
+
+# 磁盘清理
+python pyops.py clean cache
+
+# 更多工具...
+python pyops.py --help
+```
+
+### 可用工具
+
+| 命令 | 工具 | 说明 |
+|------|------|------|
+| `monitor` | sys_monitor.py | 系统监控 |
+| `log` | log_analyzer.py | 日志分析 |
+| `watch` | file_watcher.py | 文件监控 |
+| `proc` | process_manager.py | 进程管理 |
+| `port` | port_scanner.py | 端口扫描 |
+| `backup` | backup_tool.py | 备份工具 |
+| `ssh` | ssh_manager.py | SSH管理 |
+| `config` | config_parser.py | 配置解析 |
+| `clean` | disk_cleaner.py | 磁盘清理 |
+| `net` | network_diag.py | 网络诊断 |
+| `cron` | cron_manager.py | 定时任务 |
+
+---
+
 ## 工具列表
 
 ### 1. 系统监控工具 (sys_monitor.py)
@@ -312,6 +369,19 @@ python cron_manager.py templates
 
 ```bash
 pip install -r requirements.txt
+```
+
+## 运行测试
+
+```bash
+# 安装测试依赖
+pip install pytest
+
+# 运行所有测试
+pytest
+
+# 运行指定测试
+pytest tests/test_sys_monitor.py -v
 ```
 
 ## 许可证
